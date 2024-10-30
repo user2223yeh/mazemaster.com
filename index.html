@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Maze Master</title>
+    <style>
+        body {
+            font-family: 'Press Start 2P', cursive;
+        }
+
+        button {
+            font-size: 20px; 
+            padding: 15px 25px;
+            margin: 10px;
+            background-color: green; 
+            color: white; 
+            border: none; 
+            border-radius: 5px; 
+            cursor: pointer; 
+        }
+
+        button:hover {
+            background-color: rgb(123, 8, 199); 
+        }
+
+        #options-menu, #instructions, #info {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white; 
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center; 
+            display: none; 
+        }
+    </style>
+</head>
+<body>
+    <div id="menu">
+        
+        <h1>Maze Master</h1>
+        <div class="controls">
+            <button id="playButton">Empezar</button>
+            <button onclick="showInstructions()">Instrucciones</button>
+            <button onclick="showCredits()">Créditos</button>
+        </div>
+        <select id="modeSelect" style="margin-top: 20px;">
+            <option value="easy">Fácil</option>
+            <option value="medium">Medio</option>
+            <option value="hard">Difícil</option>
+        </select>
+    </div>
+
+    <div id="instructions">
+        <h2>Instrucciones</h2>
+        <p>Aquí van las instrucciones del juego.</p>
+        <button onclick="returnToMenu()">Volver</button>
+    </div>
+
+    <div id="game-container" style="display: none;">
+        <canvas id="laberintoCanvas"></canvas>
+        <button id="pauseButton" onclick="showOptionsMenu()">⚙️</button>
+    </div>
+    
+
+    <div id="info">
+        <h2 id="info-title"></h2>
+        <p id="info-content"></p>
+        <button onclick="returnToMenu()">Volver</button>
+    </div>
+
+    <div id="options-menu">
+        <h2>Opciones</h2>
+        <button onclick="closeOptionsMenu()" style="float: right;">❌</button>
+        <select id="difficultySelect">
+            <option value="easy">Fácil</option>
+            <option value="medium">Medio</option>
+            <option value="hard">Difícil</option>
+        </select>
+        <button onclick="changeDifficulty()">Cambiar Dificultad</button>
+        <button onclick="resumeGame()">Reanudar</button>
+        <button onclick="returnToMenu()">Volver al Menú</button>
+    </div>
+   
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
